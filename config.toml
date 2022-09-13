@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://opencell-community.github.io/docs"
 languageCode = "en-us"
 title = "Opencell Documentation"
 theme = "learn"
