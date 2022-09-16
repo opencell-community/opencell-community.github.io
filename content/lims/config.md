@@ -1,7 +1,9 @@
 ---
-title: "Config"
+title: "Configuration"
+description: "Configure the project to run in production, test and local environments"
 date: 2022-09-14T14:07:55+01:00
 draft: false
+weight: 9
 ---
 
 # Project Configuration

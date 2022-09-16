@@ -1,9 +1,12 @@
 ---
-title: "Content"
+title: "LIMS"
 date: 2022-09-13T12:58:15+01:00
+chapter: true
 draft: false
 ---
 
+
+{{% children description="true" sort="Name" %}}
 
 ## 👉 Get Started
 Install dependencies

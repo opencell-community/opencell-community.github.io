@@ -1,7 +1,10 @@
 ---
 title: "Deployment"
+description: "Deploy the application"
 date: 2022-09-14T14:09:20+01:00
 draft: false
+weight: 8
+pre: '<i class="fas fa-cloud-upload-alt"></i> '
 ---
 
 <details>

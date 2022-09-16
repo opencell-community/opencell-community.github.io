@@ -1,7 +1,9 @@
 ---
 title: "Build"
 date: 2022-09-14T14:09:08+01:00
+description: "How to build the project locally"
 draft: false
+weight: 10
 ---
 
 ## 👉 Get Started

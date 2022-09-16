@@ -1,6 +1,7 @@
 ---
-title: "Iot"
+title: "IOT Sensors"
 date: 2022-09-14T15:23:31+01:00
+chapter: true
 draft: false
 ---
 
