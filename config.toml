@@ -1,4 +1,6 @@
-baseURL = "https://opencell-community.github.io/docs"
+baseURL = "https://opencell-community.github.io"
 languageCode = "en-us"
 title = "Opencell Documentation"
 theme = "learn"
+[params]
+  custom_css = ["css/main.css"]
