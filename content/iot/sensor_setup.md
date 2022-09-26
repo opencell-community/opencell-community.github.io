@@ -3,4 +3,51 @@ title: "Sensor Setup"
 date: 2022-09-16T12:31:17+01:00
 draft: true
 ---
+# Downloading Required Programs
 
+In this section, the required programs for connecting your ESP board to gcloud are mentioned and how to properly download these programs for Win10 or macOS. This tutorial is aimed to people with little to no experience programing microcontrollers.
+
+## Required Programs
+The programs that you need to download in order to follow this tutorial are the following:
+- Arduino IDE
+- Google Cloud CLI
+- Git-Bash (for Windows 10 users)
+- Python (can be installed when installing the Google Cloud CLI --preferred)
+- The program corresponding to the sensor type you want to use found [HERE](https://github.com/opencell-community) 
+- Board driver
+
+## Installing the Required Programs
+### Arduino IDE
+1. Go to [arduino.cc/en/software](https://www.arduino.cc/en/software) 
+2. Click on your operating system and version under “Download Options”.
+3. Click on the “Just Download” button (unless you would like to donate to the company).
+4. Save the installer executable then run it. 
+5. Accept any permissions requirements.
+6. Follow the installer’s instructions. 
+> **NOTE:** Make sure to select the USB driver component and associated .ino files
+7. Open the program and go to Tools > Manage Libraries. The following window will pop up:
+> INSERT IMAGE 1
+8. Install the following libraries (by typing into the  _Filter your Search_ box):
+	1. **ArduinoJson** (by Benoit Blanchon, version 6.19.1)
+	2. **DHT Sensor Library** (by Adafruit, version 1.4.3) --with all the missing dependencies
+	3. **Google Cloud IoT Core JWT** (by Gus Class, version 1.1.11)
+	4. **MQTT** (by Joel Gaehwiler, version 2.5.0)
+	5. **OneWire** (by Paul Stoffregen, version 2.3.7)
+	6. **DallasTemperature** (by Miles Burton, version 3.9.0)
+	7. **base64** (by Densaugeo, version 3.9.0)
+	8. **WiFiManager** (by tablatronix, version 2.0.11-beta)
+	9. **Adafruit_MAX31855** (by Adafruit, version 1.0.4)
+9. Close the Library Manager
+10. Go to Tools > Board > Boards Manager and install “ESP8266” boards (by ESP8266 Community, version 3.0.2). Close the window.
+> If the board does not appear here, go to File (‘Arduino’ on OS) > Preferences > Additional Boards Manager URLs and paste:
+> 
+>`https://dl.espressif.com/dl/package_esp32_index.json,   http://arduino.esp8266.com/stable/package_esp8266com_index.json`  
+>
+> Then, try step #10 again. This takes a few minutes.
+
+11. Go to Tools > Board > ESP8266 Boards (3.0.2) and select the _LOLIN(WEMOS) D1 R2 & Mini_ board.
+> INSERT IMAGE 2
+### Google Cloud CLI
+1. Go to [cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install).
+2. Click on “download and install the gcloud CLI”.
+3. Select your corresponding operating system and download the installer:
