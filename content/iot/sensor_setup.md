@@ -3,7 +3,7 @@ title: "Sensor Setup"
 date: 2022-09-16T12:31:17+01:00
 draft: false
 ---
-# Downloading Required Programs
+# Configuration
 
 In this section, the required programs for connecting your ESP board to gcloud are mentioned and how to properly download these programs for Win10 or macOS. This tutorial is aimed to people with little to no experience programing microcontrollers.
 
@@ -49,5 +49,35 @@ The programs that you need to download in order to follow this tutorial are the 
 > INSERT IMAGE 2
 ### Google Cloud CLI
 1. Go to [cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install).
-2. Click on “download and install the gcloud CLI”.
+2. Click on “download and install the `gcloud cli`”.
 3. Select your corresponding operating system and download the installer:
+4. Configure and login to the google cloud CLI and have an account registered with the necessary permissions to register new IOT devices.
+
+## Device setup & configuration
+
+To install a new sensor: 
+ - configure your user with `gcloud auth login`
+ - run registerdevice.sh through the command line `./registerdevice.sh <MY_SENSOR_NAME>`
+ - compile the firmware with the Arduino IDE   
+ - Upload to device
+ - Check the device is working correctly by reading the COM port in the arduino IDE serial monitor 
+
+## Concepts
+
+The IOT sensors wake periodically, collect sensors readings then send via HTTP to the IOT gateway.
+
+To save power the boards go into the ESP8266 deep sleep mode after collecting and transmitting the data.
+
+Once a board has been registered, it will create a temporary wifi hotspot and captive portal to configure the network and password. Once correctly entered it will save these credentials and some other data about the wifi connection to the rtc memory of the board.
+
+Based on a private key written into the board software and also mirrored to the IOT gateway, the device creates a signed JWT locally to authenticate requests. This is generated only on device boot and is refreshed only once it expires to save the battery life necessary to compute the JWT afresh each time.
+
+The RTC memory code uses CRC32 checksums to ensure data integrity across power cycles.
+
+Some branches of the code exist which store consecutive sensor readings in adjacent sectors of the RTC memory to allow the board to wake periodically, fill a buffer with readings then transmit them all in one go. E.g take 5 readings at 1 minute intervals but only send them once every 5 minutes.(RTC memory has approx 512 addressable bytes)
+
+Power consumption is greatest when using the radio, so further development should be mindful of only sending and receiving data when it is absolutely necessary.
+
+
+
+
