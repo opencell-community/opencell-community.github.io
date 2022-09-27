@@ -56,6 +56,9 @@ Cells have a cost of use which can be set in a number of different ways, initial
 
  **Run**
 
+ Runs are an execution of a workflow, they contain data collected by the various cells of the workflow and contain a record of the consumables used.
+ Each run has a cost which is deducted from the credits or is billed to the user / organisation which is responsible.
+
 
 ### Architectural overview
 
