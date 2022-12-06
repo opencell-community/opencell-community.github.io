@@ -13,3 +13,16 @@ These readings are taken at fixed intervals transmitted to the google cloud IOT 
 
 The sensor wakes once a minute to take a reading and send via an HTTP request.
 
+
+Each data packet is of the form 
+
+``` json
+{
+    "timestamp" : "2022-02-02T12:43:22",
+    "deviceID": "abc",
+    "sensor1Id": "mysensor1",
+    "sensor1Value": 12.44,
+    "sensor2Id": "def",
+    "sensor2Value": 31.44
+}
+```

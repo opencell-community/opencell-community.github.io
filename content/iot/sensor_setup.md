@@ -25,9 +25,7 @@ The programs that you need to download in order to follow this tutorial are the 
 5. Accept any permissions requirements.
 6. Follow the installer’s instructions. 
 > **NOTE:** Make sure to select the USB driver component and associated .ino files
-7. Open the program and go to Tools > Manage Libraries. The following window will pop up:
-> INSERT IMAGE 1
-8. Install the following libraries (by typing into the  _Filter your Search_ box):
+7. Install the following libraries (by typing into the  _Filter your Search_ box):
 	1. **ArduinoJson** (by Benoit Blanchon, version 6.19.1)
 	2. **DHT Sensor Library** (by Adafruit, version 1.4.3) --with all the missing dependencies
 	3. **Google Cloud IoT Core JWT** (by Gus Class, version 1.1.11)
@@ -37,16 +35,16 @@ The programs that you need to download in order to follow this tutorial are the 
 	7. **base64** (by Densaugeo, version 3.9.0)
 	8. **WiFiManager** (by tablatronix, version 2.0.11-beta)
 	9. **Adafruit_MAX31855** (by Adafruit, version 1.0.4)
-9. Close the Library Manager
-10. Go to Tools > Board > Boards Manager and install “ESP8266” boards (by ESP8266 Community, version 3.0.2). Close the window.
+8. Close the Library Manager
+9. Go to Tools > Board > Boards Manager and install “ESP8266” boards (by ESP8266 Community, version 3.0.2). Close the window.
 > If the board does not appear here, go to File (‘Arduino’ on OS) > Preferences > Additional Boards Manager URLs and paste:
 > 
 >`https://dl.espressif.com/dl/package_esp32_index.json,   http://arduino.esp8266.com/stable/package_esp8266com_index.json`  
 >
 > Then, try step #10 again. This takes a few minutes.
 
-11. Go to Tools > Board > ESP8266 Boards (3.0.2) and select the _LOLIN(WEMOS) D1 R2 & Mini_ board.
-> INSERT IMAGE 2
+10. Go to Tools > Board > ESP8266 Boards (3.0.2) and select the _LOLIN(WEMOS) D1 R2 & Mini_ board.
+
 ### Google Cloud CLI
 1. Go to [cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install).
 2. Click on “download and install the `gcloud cli`”.
@@ -56,9 +54,12 @@ The programs that you need to download in order to follow this tutorial are the 
 ## Device setup & configuration
 
 To install a new sensor: 
+ - pull the latest sensor code `rtc-mem-wifi-jwt branch`  https://github.com/UK-CoVid19/iot-testing
+ - configure `ciotc_config.h` with your set of domains and keys for a registered google cloud IOT instance. The wifi SSID & password can be set from the hotspot a new device will create if unable to connect to the stored values.
+
  - configure your user with `gcloud auth login`
  - run registerdevice.sh through the command line `./registerdevice.sh <MY_SENSOR_NAME>`
- - compile the firmware with the Arduino IDE   
+ - compile the firmware with the Arduino IDE
  - Upload to device
  - Check the device is working correctly by reading the COM port in the arduino IDE serial monitor 
 
